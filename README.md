@@ -1,10 +1,10 @@
 #Clue - CLI Glue
-**Clue** is a Go package that enables you to store persistent variables between application runs.  In certain cases like CLI interfaces, you may want to ensure that certain variables like authentication tokens are saved for later use.  The CLI application should be able to quickly store the information for immediate retrieval upon future future runs consistently across OS platforms.
+**Clue** is a Go package that enables you to store persistent variables between application runs.  In certain cases like CLI interfaces, you may want to ensure that certain variables like authentication tokens are saved for later use.  The CLI application should be able to quickly store the information for immediate retrieval upon future runs consistently across OS platforms.
 
 
 ## Overview
 
-This package does this by storing variables with the ```EncodeGobFile``` function with a ```UseValue``` struct.  The struct is stored in a Go-Binary file based on the ```os.TempDir()``` method and a paramter for suffix.  The ```TempDir``` is unique per OS login session and works across OS's.
+This package does this by storing variables with the ```EncodeGobFile``` function with a ```UseValue``` struct.  The struct is stored in a Go-Binary file based on the ```os.TempDir()``` method and a parameter for suffix.  The ```TempDir``` is unique per OS login session and works across OS's.
 
 Retrieval of parameters can be done with the ```DecodeGobFile``` function and a ```GetValue``` struct.  
 
