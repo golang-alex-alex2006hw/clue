@@ -29,6 +29,7 @@ func DeleteGobFile(suffix string) (err error) {
 	return nil
 }
 
+//EncodeGobFile encodes a Go-Binary file that is made of a UseValue type with a map.
 func EncodeGobFile(suffix string, useValue UseValue) (err error) {
 	fileLocation := fmt.Sprintf("%v%v.gob", os.TempDir(), suffix)
 	file, err := os.Create(fileLocation)
@@ -60,6 +61,7 @@ func EncodeGobFile(suffix string, useValue UseValue) (err error) {
 	return
 }
 
+//DecodeGobFile adds imports Go-Binary contents that was set previously to the GetValue type with a map and references to strings
 func DecodeGobFile(suffix string, getValue *GetValue) (err error) {
 	fileLocation := fmt.Sprintf("%v%v.gob", os.TempDir(), suffix)
 	file, err := os.Open(fileLocation)
