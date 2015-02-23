@@ -21,7 +21,7 @@ type GetValue struct {
 
 //DeleteGobFile deletes a specific cache file stored as suffix
 func DeleteGobFile(suffix string) (err error) {
-	fileLocation := fmt.Sprintf("%v%v%v.gob", os.TempDir(), suffix, os.Getpid())
+	fileLocation := fmt.Sprintf("%v%v%v.gob", os.TempDir(), suffix, os.Getppid())
 	err = os.Remove(fileLocation)
 	if err != nil {
 		return fmt.Errorf("Problem removing file: %v", err)
@@ -31,7 +31,7 @@ func DeleteGobFile(suffix string) (err error) {
 
 //EncodeGobFile encodes a Go-Binary file that is made of a UseValue type with a map.
 func EncodeGobFile(suffix string, useValue UseValue) (err error) {
-	fileLocation := fmt.Sprintf("%v%v%v.gob", os.TempDir(), suffix, os.Getpid())
+	fileLocation := fmt.Sprintf("%v%v%v.gob", os.TempDir(), suffix, os.Getppid())
 	file, err := os.Create(fileLocation)
 	if err != nil {
 		return fmt.Errorf("Problem creating file: %v", err)
@@ -63,7 +63,7 @@ func EncodeGobFile(suffix string, useValue UseValue) (err error) {
 
 //DecodeGobFile adds imports Go-Binary contents that was set previously to the GetValue type with a map and references to strings
 func DecodeGobFile(suffix string, getValue *GetValue) (err error) {
-	fileLocation := fmt.Sprintf("%v%v%v.gob", os.TempDir(), suffix, os.Getpid())
+	fileLocation := fmt.Sprintf("%v%v%v.gob", os.TempDir(), suffix, os.Getppid())
 	file, err := os.Open(fileLocation)
 	if err != nil {
 		if os.IsExist(err) {
