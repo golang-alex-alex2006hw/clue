@@ -36,7 +36,6 @@ func EncodeGobFile(suffix string, useValue UseValue) (err error) {
 		fmt.Println("fileLocaton: ", fileLocation)
 		fmt.Printf("useValue: %+v\n", useValue)
 	}
-	fmt.Println(fileLocation)
 	file, err := os.Create(fileLocation)
 	if err != nil {
 		return fmt.Errorf("Problem creating file: %v", err)
